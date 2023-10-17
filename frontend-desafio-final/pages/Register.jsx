@@ -30,7 +30,7 @@ const Register = () => {
         setPassword('');
 
         try{
-            await axios.post("http://localhost:3000/usuarios", {name, email, password});
+            await axios.post("https://pizzaapi-p5jw.onrender.com/usuarios", {name, email, password});
             alert("Usuario registrado con éxito");
             navigate("/Login");
           } catch (error) {

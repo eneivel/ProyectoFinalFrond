@@ -39,7 +39,7 @@ const Login = () => {
             password: password
         }
 
-        let response = await fetch("http://localhost:3000/login", {
+        let response = await fetch("https://pizzaapi-p5jw.onrender.com/login", {
             method: "POST",
             body: JSON.stringify(bodyContent),
             headers: headersList
