@@ -8,7 +8,7 @@ export default function UserContextProvider({ children }) {
     const [error, setError] = useState()
     const getData = async () => {
         try {
-            let response = await fetch("http://localhost:3000/api/pizzas", {
+            let response = await fetch("https://pizzaapi-p5jw.onrender.com/api/pizzas", {
                 method: "GET",
             });
 
