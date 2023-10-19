@@ -27,32 +27,35 @@ export default function Products() {
                     <div>
                         <img
                             className="carousel-image"
-                            src="../assets/img/oferta-2.jpg"
+                            src="https://tofuu.getjusto.com/orioneat-prod-resized/6cSs62SvRGGKFWcRL-1200-1200.webp"
                             alt="Imagen 1"
                         />
                         <p className="legend">
                             PROMO
-                            ARMA TU PIZZA
-                            2X1
+                            PIZZA +
+                            BEBIDA
                         </p>
                     </div>
                     <div>
                         <img
                             className="carousel-image"
-                            src="../assets/img/oferta-1.jpg"
+                            src="https://tofuu.getjusto.com/orioneat-prod-resized/rmffjntbBf6Stmx8o-1200-1200.webp"
                             alt="Imagen 2"
                         />
+                        <p className="legend">
+                            PROMO
+                            4 PIZZA FAMILIARES
+                        </p>
                     </div>
                     <div>
                         <img
                             className="carousel-image"
-                            src="../assets/img/oferta-3.jpg"
+                            src="https://tofuu.getjusto.com/orioneat-prod-resized/uDbjx2NoXMWoho38K-1200-1200.webp"
                             alt="Imagen 3"
                         />
                         <p className="legend">
                             PROMO 
-                            ESPECIALIDADES
-                            2X1
+                            2 PIZAS, BEBIDAS, PALOS DE AJO
                         </p>
                     </div>
                 </Carousel>

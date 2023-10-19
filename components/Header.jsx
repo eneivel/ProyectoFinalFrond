@@ -15,7 +15,7 @@ const Header = () => {
                     </p>
                 </div>
                 <div className="nuevo-header-img">
-                    <img src="../assets/img/imagen-logo.jpg" alt="" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt6YjYRI8OIti5L1yBid2NfeA1HKyq81zDGQ&usqp=CAU" alt="" />
                 </div>
             </div>
         </header>
