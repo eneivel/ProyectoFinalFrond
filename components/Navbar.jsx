@@ -58,7 +58,12 @@ export default function Navbar() {
                             <ul className="nav-user-init navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/Payment">
-                                        Página de Pago
+                                        Pago
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/profile">
+                                        usuario
                                     </Link>
                                 </li>
                                 <li className="nav-item ms-3">

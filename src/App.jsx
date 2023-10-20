@@ -51,9 +51,8 @@ const App = () => {
                     />
                     <Route
                         path="/profile"
-                        element={user ? <serProfile /> : <Navigate to="/login" />}
+                        element={user ? <UserProfile /> : <Navigate to="/login" />}
                     />
-                    
                     {user &&
                         <Route
                             path="/favorites"
