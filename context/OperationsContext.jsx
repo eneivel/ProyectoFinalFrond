@@ -28,7 +28,7 @@ export default function OperationsContextProvider({ children }) {
             const objetoCarro = {
                 "id": pizzaSeleccionada.id,
                 "cantidad": "1",
-                "precio": pizzaSeleccionada.price
+                "precio": pizzaSeleccionada.valor
             }
             setCarro([...carro, objetoCarro])
         }
