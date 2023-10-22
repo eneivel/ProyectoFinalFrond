@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react"
 import "../src/index.css"
-import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 import { AuthContext } from "../context/AuthContext"
@@ -47,22 +46,38 @@ const pizzaData = {
 }
 
 try {
-  const response = await axios.post(
-    "https://pizzaapi-p5jw.onrender.com/crear_pizza",
-    pizzaData,
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(pizzaData),
+  }
+
+  try {
+    const response = await fetch(
+      "https://pizzaapi-p5jw.onrender.com/crear_pizza",
+      requestOptions
+    )
+    if (!response.ok) {
+      throw new Error(
+        `Error en la solicitud: ${response.status} ${response.statusText}`
+      )
     }
-  )
+
+    const responseData = await response.json()
+    console.log(responseData)
+  } catch (error) {
+    console.error(error)
+  }
+  navigate("/")
   alert("Pizza registrada con éxito")
 } catch (error) {
   alert("Algo salió mal ...")
   console.log(error)
 }
   }
-  console.log(pizza.data)
+  console.log()
   return (
     <div className="Register sticky-bottom">
       <form className="form_container" onSubmit={handleSubmit}>
