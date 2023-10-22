@@ -1,9 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import "../src/index.css"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
+import { AuthContext } from "../context/AuthContext"
+
 const Register = () => {
+  const { user } = useContext(AuthContext)
   const navigate = useNavigate()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -46,7 +49,11 @@ const Register = () => {
   return (
     <div className="Register sticky-bottom">
       <form className="form_container" onSubmit={handleSubmit}>
-        <h2>Registro</h2>
+        {user && user.email ? (
+          <p>{user.email}</p>
+        ) : (
+          <p>No hay un usuario autenticado</p>
+        )}
         <div className="title_container">
           <span className="subtitle">
             Comience con nuestra aplicación, simplemente cree una cuenta y

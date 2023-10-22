@@ -26,12 +26,15 @@ const AuthProvider = ({ children }) => {
     const getUserProfile = async (accessToken) => {
         try {
             setLoading(true);
-            const res = await fetch(import.meta.env.VITE_API_URL + "/auth/profile", {
+            const res = await fetch(
+              "https://pizzaapi-p5jw.onrender.com/usuarios",
+              {
                 method: "GET",
                 headers: {
-                    Authorization: `Bearer ${accessToken}`,
+                  Authorization: `Bearer ${accessToken}`,
                 },
-            });
+              }
+            )
             const data = await res.json();
             setUser(data);
         } catch (error) {

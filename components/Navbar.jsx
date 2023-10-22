@@ -68,7 +68,7 @@ export default function Navbar() {
                                 </li>
                                 <li className="nav-item ms-3">
                                     <button type="button" className="btn mt-1 " onClick={signoff}>
-                                        <i class="fa-solid fa-right-from-bracket fa-rotate-180"></i>
+                                        <i className="fa-solid fa-right-from-bracket fa-rotate-180"></i>
                                     </button>
                                 </li>
                             </ul>
