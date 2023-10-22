@@ -8,44 +8,61 @@ import { AuthContext } from "../context/AuthContext"
 const Register = () => {
   const { user } = useContext(AuthContext)
   const navigate = useNavigate()
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const handleNameChange = (e) => {
-    setName(e.target.value)
+  const [pizza, setPizza] = useState({
+    titulo: "",
+    descripcion: "",
+    valor: "",
+    img: "",
+    ingredients: "",
+  })
+
+  const handleTituloChange = (e) => {
+    setPizza({ ...pizza, titulo: e.target.value })
   }
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value)
+  const handleDescripcionChange = (e) => {
+    setPizza({ ...pizza, descripcion: e.target.value })
   }
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
+  const handleValorChange = (e) => {
+    setPizza({ ...pizza, valor: e.target.value })
+  }
+
+  const handleImgChange = (e) => {
+    setPizza({ ...pizza, img: e.target.value })
+  }
+
+  const handleIngredientsChange = (e) => {
+    setPizza({ ...pizza, ingredients: e.target.value })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("Name:", name)
-    console.log("Email:", email)
-    console.log("Password:", password)
-    setName("")
-    setEmail("")
-    setPassword("")
+const pizzaData = {
+  titulo: pizza.titulo,
+  descripcion: pizza.descripcion,
+  valor: pizza.valor,
+  img: pizza.img,
+  ingredients: pizza.ingredients,
+}
 
-    try {
-      await axios.post("https://pizzaapi-p5jw.onrender.com/usuarios", {
-        name,
-        email,
-        password,
-      })
-      alert("Usuario registrado con éxito")
-      navigate("/Login")
-    } catch (error) {
-      alert("Algo salió mal ...")
-      console.log(error)
+try {
+  const response = await axios.post(
+    "https://pizzaapi-p5jw.onrender.com/crear_pizza",
+    pizzaData,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
+  )
+  alert("Pizza registrada con éxito")
+} catch (error) {
+  alert("Algo salió mal ...")
+  console.log(error)
+}
   }
-
+  console.log(pizza.data)
   return (
     <div className="Register sticky-bottom">
       <form className="form_container" onSubmit={handleSubmit}>
@@ -55,61 +72,80 @@ const Register = () => {
           <p>No hay un usuario autenticado</p>
         )}
         <div className="title_container">
-          <span className="subtitle">
-            Comience con nuestra aplicación, simplemente cree una cuenta y
-            disfrute de la experiencia.
-          </span>
+          <span className="subtitle">Registra una nueva pizza.</span>
         </div>
         <div className="input_container">
-          <label className="input_label" htmlFor="name">
-            Nombre:
+          <label className="input_label" htmlFor="titulo">
+            Título:
           </label>
           <input
-            placeholder="Introduce tu nombre aquí"
-            title="Inpit title"
-            name="input-name"
+            placeholder="Título de la pizza"
             type="text"
-            value={name}
-            onChange={handleNameChange}
+            value={pizza.titulo}
+            onChange={handleTituloChange}
             required
             className="input_field"
-            id="name"
+            id="titulo"
           />
         </div>
         <div className="input_container">
-          <label className="input_label" htmlFor="email_field">
-            Email:
+          <label className="input_label" htmlFor="descripcion">
+            Descripción:
           </label>
           <input
-            type="email"
-            placeholder="name@mail.com"
-            title="Inpit title"
-            className="input_field"
-            name="input-name"
-            id="email_field"
-            value={email}
-            onChange={handleEmailChange}
+            placeholder="Descripción de la pizza"
+            type="text"
+            value={pizza.descripcion}
+            onChange={handleDescripcionChange}
             required
+            className="input_field"
+            id="descripcion"
           />
         </div>
         <div className="input_container">
-          <label className="input_label" htmlFor="password_field">
-            Contraseña:
+          <label className="input_label" htmlFor="valor">
+            Valor:
           </label>
           <input
-            type="password"
-            id="password_field"
-            placeholder="Password"
-            title="Inpit title"
-            name="input-name"
-            className="input_field"
-            value={password}
-            onChange={handlePasswordChange}
+            placeholder="Valor de la pizza"
+            type="text"
+            value={pizza.valor}
+            onChange={handleValorChange}
             required
+            className="input_field"
+            id="valor"
+          />
+        </div>
+        <div className="input_container">
+          <label className="input_label" htmlFor="img">
+            URL de la imagen:
+          </label>
+          <input
+            placeholder="URL de la imagen de la pizza"
+            type="text"
+            value={pizza.img}
+            onChange={handleImgChange}
+            required
+            className="input_field"
+            id="img"
+          />
+        </div>
+        <div className="input_container">
+          <label className="input_label" htmlFor="ingredients">
+            Ingredientes:
+          </label>
+          <input
+            placeholder="Ingredientes de la pizza"
+            type="text"
+            value={pizza.ingredients}
+            onChange={handleIngredientsChange}
+            required
+            className="input_field"
+            id="ingredients"
           />
         </div>
         <button type="submit" className="sign-in_btn">
-          Registrarse
+          Registrar Pizza
         </button>
       </form>
     </div>
